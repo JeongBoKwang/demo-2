@@ -11,4 +11,10 @@ public interface ArticleService {
 
 	Map<String, Object> write(Map<String, Object> param);
 
+	Article getArticle(int id);
+
+	Map<String, Object> remove(int id);
+
+	Map<String, Object> modify(Map<String, Object> param);
+
 }

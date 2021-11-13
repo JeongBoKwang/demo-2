@@ -40,7 +40,7 @@ h1 {
 				<col width="10"/>
 				<col width="200"/>
 				<col />
-				<col width="100"/>
+				<col width="150"/>
 			</colgroup>
 			<thead>
 				<tr>
@@ -56,8 +56,11 @@ h1 {
 					<tr>
 						<td>${article.id}</td>
 						<td>${article.regDate}</td>
-						<td><a href="#">${article.title}</a></td>
-						<td></td>
+						<td><a href="./detail?id=${article.id}">${article.title}</a></td>
+						<td>
+							<a href="./modify?id=${article.id}">수정하기</a>
+							<a href="./doDelete?id=${article.id}" onclick="if(confirm('삭제하시겠습니다?') == false )return false;">삭제</a>
+						</td>
 					</tr>
 				</c:forEach>
 			</tbody>
