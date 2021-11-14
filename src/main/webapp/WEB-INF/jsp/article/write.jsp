@@ -1,38 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>    
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>게시물 쓰기</title>
-<style>
-h1 {
-	text-align: center;
-}
-.con{
-	width:1000px;
-	margin: 0 auto;	
-}
-.article-write-box > form > table {
-	width:100%;
-	border-collapse:collapse;
-}
-.article-write-box > form > table th, .article-write-box > form > table td {
-	border:1px solid black;
-	padding:20px;
-}
-.article-write-box > form > table td input[type="text"] , .article-write-box > form > table td textarea{
-	display: block;
-	width: 90%;
-}
-.article-write-box > form > table td textarea {
-	height: 500px;
-}
-.menu-box {
-	padding:10px;
-}
-</style>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<c:set var="pageTitle" value="게시물 작성" />
+<%@ include file="../part/head.jspf" %>    
 <script>
 	function submitWriteForm(form) {
 			form.title.value = form.title.value.trim();
@@ -55,17 +25,8 @@ h1 {
 			form.submit();
 		}
 </script>
-</head>
-<body>
-	<h1>게시판 쓰기</h1>
-	
-	<div class="con menu-box">
-		<a href="/article/list">글 리스트</a>
-		<a href="/article/write">글 쓰기</a>
-	</div>
-	
-	<div class="con article-write-box">
-		<form onsubmit="submitWriteForm(this); return false;" action="/article/doWrite" method="POST">
+<div class="article-write con table-box">
+		<form class="table-box form form-type-1" onsubmit="submitWriteForm(this); return false;" action="/article/doWrite" method="POST">
 			<table>
 				<colgroup>
 					<col width="100" />
@@ -95,6 +56,5 @@ h1 {
 					</tbody>
 			</table>
 		</form>
-	</div>
-</body>
-</html>
+	</div>	
+<%@ include file="../part/foot.jspf" %>

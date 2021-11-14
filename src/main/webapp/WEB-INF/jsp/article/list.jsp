@@ -1,40 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>    
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<style>
-h1 {
-	text-align: center;
-}
-.con{
-	width:1000px;
-	margin: 0 auto;	
-}
-.article-list-box > table {
-	width:100%;
-	border-collapse:collapse;
-}
-.article-list-box > table th, .article-list-box > table td {
-	border:1px solid black;
-	padding:20px;
-}
-.menu-box {
-	padding:10px;
-}
-</style>
-</head>
-<body>
-	<h1>게시판 리스트</h1>
-	<div class="con menu-box">
-		<a href="/article/list">글 리스트</a>
-		<a href="/article/write">글 쓰기</a>
-	</div>
-	
-	<div class="con article-list-box">
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<c:set var="pageTitle" value="게시물 리스트" />    
+<%@ include file="../part/head.jspf" %>
+
+<div class="article-list con table-box">
 		<table>
 			<colgroup>
 				<col width="10"/>
@@ -65,6 +35,5 @@ h1 {
 				</c:forEach>
 			</tbody>
 		</table>
-	</div>
-</body>
-</html>
+	</div>	
+<%@ include file="../part/foot.jspf" %>

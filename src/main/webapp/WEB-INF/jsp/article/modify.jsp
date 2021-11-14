@@ -1,38 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>    
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>게시물 수정</title>
-<style>
-h1 {
-	text-align: center;
-}
-.con{
-	width:1000px;
-	margin: 0 auto;	
-}
-.article-modify-box > form > table {
-	width:100%;
-	border-collapse:collapse;
-}
-.article-modify-box > form > table th, .article-modify-box > form > table td {
-	border:1px solid black;
-	padding:20px;
-}
-.article-modify-box > form > table td input[type="text"] , .article-modify-box > form > table td textarea{
-	display: block;
-	width: 90%;
-}
-.article-modify-box > form > table td textarea {
-	height: 500px;
-}
-.menu-box {
-	padding:10px;
-}
-</style>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<c:set var="pageTitle" value="게시물 수정" />    
+<%@ include file="../part/head.jspf" %>
 <script>
 	function submitModifyForm(form) {
 			form.title.value = form.title.value.trim();
@@ -55,17 +25,8 @@ h1 {
 			form.submit();
 		}
 </script>
-</head>
-<body>
-	<h1>게시판 수정</h1>
-	
-	<div class="con menu-box">
-		<a href="/article/list">글 리스트</a>
-		<a href="/article/write">글 쓰기</a>
-	</div>
-	
-	<div class="con article-modify-box">
-		<form onsubmit="submitModifyForm(this); return false;" action="/article/doModify" method="POST">
+	<div class="article-modify con table-box">
+		<form class="table-box form form-type-1" onsubmit="submitModifyForm(this); return false;" action="/article/doModify" method="POST">
 		<input value="${article.id}" name="id" type="hidden" />
 			<table>
 				<colgroup>
@@ -101,6 +62,5 @@ h1 {
 					</tbody>
 			</table>
 		</form>
-	</div>
-</body>
-</html>
+	</div>	
+<%@ include file="../part/foot.jspf" %>
